@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+    </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Nunito:wght@200&display=swap');
+    </style>
+    <style>
+        ::root {
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .Body {
+            padding-top: 25px;
+            border: 1px solid lightslategrey;
+            border-radius: 5px;
+            width: 500px;
+            height: 100hw;
+            margin-top: 50px;
+            margin-left: 25%;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .Body:last-child {
+            align-items: flex-start;
+        }
+
+        .Form {
+            align-items: center;
+        }
+
+        input {
+            font-size: 20px;
+            color: black;
+            padding: 20px;
+            height: 5px;
+            margin-right: 10px;
+            width: 300px;
+            font-family: 'Nunito', sans-serif;
+
+        }
+
+        input::placeholder {
+            font-family: 'Nunito', sans-serif
+        }
+
+        input:focus {
+            outline: none;
+            user-select: none;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0%;
+        }
+
+        li {
+            position: relative;
+            border-bottom: 1px solid #e6bebe;
+        }
+
+        li:last-child {
+            border: none;
+        }
+
+        p {
+            width: 230px;
+            font-size: 40px;
+            font-family: 'Amatic SC', cursive;
+
+            display: inline-block;
+            margin-right: 80px;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .showed {
+            opacity: 1;
+            transition-property: display;
+            transition: 0.5s ease-in-out;
+            display: none;
+        }
+
+        button {
+            width: 60px;
+            border-radius: 5px;
+            height: 50px;
+            background-color: white;
+            user-select: none;
+            border: 1px solid rgb(166, 113, 216);
+        }
+
+        button:hover {
+            background-color: rgb(166, 113, 216);
+            color: white;
+        }
+
+        .List {
+
+            overflow: auto;
+            display: block;
+            opacity: 1;
+            transition: opacity 0.5s;
+            position: relative;
+            left: 10px;
+            height: 430px;
+            width: 400px;
+        }
+
+        /* .List::-webkit-scrollbar {
+            width: 20px;
+        } */
+        .List::-webkit-scrollbar-thumb {
+            background: red;
+            border-radius: 10px;
+        }
+
+        #showed {
+            width: 100px;
+            margin-top: 14px;
+            margin-bottom: 10px;
+        }
+
+        .showed.transt {
+            opacity: 1;
+            display: block;
+
+        }
+    </style>
+    <title>To D0</title>
+</head>
+
+<body>
+    <div class="Body">
+        <div class="Form">
+            <form onsubmit="Nonrefresh(e)">
+                <input placeholder="Write any to do" />
+                <button>
+                    Add
+                </button>
+            </form>
+        </div>
+        <div class="List">
+            <ul>
+                <li>
+                    <p>Make shopping</p>
+                    <button>Delete</button>
+                </li>
+                <li>
+                    <p>Write Code</p>
+                    <button>Delete</button>
+                </li>
+                <li>
+                    <p>Buy new Computer</p>
+                    <button>Delete</button>
+                </li>
+                <div class="showed" id="hidden">
+                    <li>
+                        <p>Write Code</p>
+                        <button>Delete</button>
+                    </li>
+                    <li>
+                        <p>Buy new Computer</p>
+                        <button>Delete</button>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <button id="showed" onclick="show()">Show more</button>
+    </div>
+    <script>
+        function Nonrefresh(e) {
+            e.preventDefault();
+        }
+        function show() {
+            var list = document.getElementById("hidden");
+            if (list.classList.contains("transt")) {
+                list.classList.remove("transt");
+                console.log("showed");
+            }
+            else {
+                list.classList.add("transt");
+
+            }
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>
